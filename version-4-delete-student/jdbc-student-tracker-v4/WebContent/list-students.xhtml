@@ -55,6 +55,15 @@
 					<!--  the value for each row -->
 					#{tempStudent.lastName}
 				</h:column>
+				
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Branch</f:facet>
+
+					<!--  the value for each row -->
+					#{tempStudent.branch}
+				</h:column>
+				
 
 				<h:column>
 					<!-- the column header -->
@@ -62,6 +71,16 @@
 
 					<!--  the value for each row -->
 					#{tempStudent.email}
+				</h:column>
+				
+				
+				
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Religion</f:facet>
+
+					<!--  the value for each row -->
+					#{tempStudent.religion}
 				</h:column>
 
 				<h:column>
@@ -85,6 +104,23 @@
 
 		</div>
 		
+	</div>
+	<div class="container2">
+	<div id="content">
+	<legend>Field Dependency</legend>
+	<h:form>
+	<tr>   
+	<td width="25%"><h:outputText>First Name</h:outputText></td>
+	<td width="25%"><h:selectOneMenu id="fId"
+	                     value="#{StudentController.students}">
+	                     <f:selectItem itemValue="" itemLabel="S E L E C T"/>
+	                     <f:selectItems value="#{StudentController.students}"
+	                     var="studentId" itemValue="#{Student.studentId}"/>
+	                     </h:selectOneMenu></td>
+	</tr>
+	</h:form>
+	
+	</div>
 	</div>
 
 </h:body>

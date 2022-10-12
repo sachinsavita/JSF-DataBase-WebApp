@@ -62,11 +62,12 @@ public class StudentDbUtil {
 				int id = myRs.getInt("id");
 				String firstName = myRs.getString("first_name");
 				String lastName = myRs.getString("last_name");
+				String branch = myRs.getString("branch");
 				String email = myRs.getString("email");
+				String religion = myRs.getString("religion");
 
 				// create new student object
-				Student tempStudent = new Student(id, firstName, lastName,
-						email);
+				Student tempStudent = new Student(id, firstName, lastName, branch, email, religion);
 
 				// add it to the list of students
 				students.add(tempStudent);
@@ -87,14 +88,16 @@ public class StudentDbUtil {
 		try {
 			myConn = getConnection();
 
-			String sql = "insert into student (first_name, last_name, email) values (?, ?, ?)";
+			String sql = "insert into student (first_name, last_name, branch, email, religion) values (?,?,?,?,?)";
 
 			myStmt = myConn.prepareStatement(sql);
 
 			// set params
 			myStmt.setString(1, theStudent.getFirstName());
 			myStmt.setString(2, theStudent.getLastName());
-			myStmt.setString(3, theStudent.getEmail());
+			myStmt.setString(3, theStudent.getBranch());
+			myStmt.setString(4, theStudent.getEmail());
+			myStmt.setString(5, theStudent.getReligion());
 			
 			myStmt.execute();			
 		}
@@ -129,10 +132,14 @@ public class StudentDbUtil {
 				int id = myRs.getInt("id");
 				String firstName = myRs.getString("first_name");
 				String lastName = myRs.getString("last_name");
+				String branch = myRs.getString("branch");
 				String email = myRs.getString("email");
+				String religion = myRs.getString("religion");
+				
+				
 
-				theStudent = new Student(id, firstName, lastName,
-						email);
+				theStudent = new Student(id, firstName, lastName, branch,
+						email, religion);
 			}
 			else {
 				throw new Exception("Could not find student id: " + studentId);
@@ -154,7 +161,7 @@ public class StudentDbUtil {
 			myConn = getConnection();
 
 			String sql = "update student "
-						+ " set first_name=?, last_name=?, email=?"
+						+ " set first_name=?, last_name=?,branch=?, email=?, religion=?"
 						+ " where id=?";
 
 			myStmt = myConn.prepareStatement(sql);
@@ -162,8 +169,10 @@ public class StudentDbUtil {
 			// set params
 			myStmt.setString(1, theStudent.getFirstName());
 			myStmt.setString(2, theStudent.getLastName());
-			myStmt.setString(3, theStudent.getEmail());
-			myStmt.setInt(4, theStudent.getId());
+			myStmt.setString(3, theStudent.getBranch());
+			myStmt.setString(4, theStudent.getEmail());
+			myStmt.setString(5, theStudent.getReligion());
+			myStmt.setInt(6, theStudent.getId());
 			
 			myStmt.execute();
 		}

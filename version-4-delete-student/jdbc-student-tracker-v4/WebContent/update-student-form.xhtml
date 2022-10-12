@@ -34,9 +34,11 @@
 	
 				<h:outputLabel>Last name:</h:outputLabel> <h:inputText value="#{student.lastName}" id="lastName" /> <h:message for="lastName" />
 	
-				<h:outputLabel>Email:</h:outputLabel> <h:inputText value="#{student.email}" id="email" 
-									required="true"
-            							requiredMessage="Your email is mandatory."/> 	<h:message for="email"  />
+	            <h:outputLabel>Branch:</h:outputLabel> <h:inputText value="#{student.branch}" id="branch" required="true" requiredMessage="Your branch is mandatory."/> 	<h:message for="branch"  />
+	
+				<h:outputLabel>Email:</h:outputLabel> <h:inputText value="#{student.email}" id="email" required="true" requiredMessage="Your email is mandatory."/> 	<h:message for="email"  />
+				
+				<h:outputLabel>Religion:</h:outputLabel> <h:inputText value="#{student.religion}" id="religion" required="true" requiredMessage="Your religion is mandatory."/> 	<h:message for="religion"  />
 				
 				 <h:inputHidden value="#{student.id}" />
 				

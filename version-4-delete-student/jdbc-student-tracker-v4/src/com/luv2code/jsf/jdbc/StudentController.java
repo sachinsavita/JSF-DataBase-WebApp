@@ -16,12 +16,14 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class StudentController {
 
-	private List<Student> students;
+	private List<Student> students = new ArrayList<>();
+	
 	private StudentDbUtil studentDbUtil;
+	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	public StudentController() throws Exception {
-		students = new ArrayList<>();
+	
 		
 		studentDbUtil = StudentDbUtil.getInstance();
 	}

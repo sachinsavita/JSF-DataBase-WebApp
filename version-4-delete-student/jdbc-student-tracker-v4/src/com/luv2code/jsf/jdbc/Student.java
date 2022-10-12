@@ -8,16 +8,20 @@ public class Student {
 	private int id;
 	private String firstName;
 	private String lastName;
+	private String branch;
 	private String email;
+	private String religion;
 	
 	public Student() {
 	}
 	
-	public Student(int id, String firstName, String lastName, String email) {
+	public Student(int id, String firstName, String lastName, String branch, String email, String religion) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.branch = branch;
 		this.email = email;
+		this.religion = religion;
 	}
 
 	public int getId() {
@@ -35,6 +39,7 @@ public class Student {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
 
 	public String getLastName() {
 		return lastName;
@@ -51,11 +56,29 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+
+	public String getReligion() {
+		return religion;
+	}
+
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+
+	
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", email=" + email + "]";
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ",branch=" + branch + ", email=" + email + ", religion=" + religion + "]";
 	}
 
 }
